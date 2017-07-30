@@ -1,8 +1,6 @@
 package pl.spring.demo.service;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.spring.demo.dao.impl.BookDaoImpl;
 import pl.spring.demo.exception.BookNotNullIdException;
 import pl.spring.demo.to.BookTo;
 
@@ -66,33 +63,16 @@ public class BookServiceImplTest {
     }
     
     @Test
-    //@Ignore
     public void shouldSetProperIdDuringSaveBook() {
         // given
         final BookTo bookToSave = new BookTo();
-        //bookToSave.setId(22L);
         // when
         bookService.saveBook(bookToSave);
         // then
-        //assertTrue(bookToSave.getId()==55L);
         long bookId = bookToSave.getId();
         assertEquals(7L, bookId);
     }
     
-    /*
-    @Test
-    @Ignore
-	public void shouldSaveBookWithNextId() {
-		//given
-		BookDaoImpl bdi = new BookDaoImpl();
-		BookTo book = new BookTo();
-		BookTo actual;
-		//when
-		actual = bdi.save(book);
-		long id = actual.getId();
-		//then
-		assertEquals(7L,id);
-	}
-    */
+
       
 }

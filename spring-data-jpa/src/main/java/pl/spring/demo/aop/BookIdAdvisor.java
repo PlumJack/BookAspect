@@ -31,11 +31,11 @@ public class BookIdAdvisor implements MethodBeforeAdvice {
     	}        
     }
 
-    private boolean hasAnnotation (Method method, Object o, Class annotationClazz) throws NoSuchMethodException {
-        boolean hasAnnotation = method.getAnnotation(annotationClazz) != null;
+    private boolean hasAnnotation (Method method, Object o, Class annotationClass) throws NoSuchMethodException {
+        boolean hasAnnotation = method.getAnnotation(annotationClass) != null;
 
         if (!hasAnnotation && o != null) {
-            hasAnnotation = o.getClass().getMethod(method.getName(), method.getParameterTypes()).getAnnotation(annotationClazz) != null;
+            hasAnnotation = o.getClass().getMethod(method.getName(), method.getParameterTypes()).getAnnotation(annotationClass) != null;
         }
         return hasAnnotation;
     }
